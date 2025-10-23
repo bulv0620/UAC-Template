@@ -1,0 +1,91 @@
+{
+  "moduleName": "",
+  "queryTableConfig": {
+    "formOptions": [
+      {
+        "label": "",
+        "prop": "",
+        "required": false,
+        "readonly": false,
+        "rules": [],
+        "type": "",
+        "config": {
+          /** any */
+        }
+      }
+    ],
+    "tableOptions": [
+      {
+        "label": "",
+        "prop": "",
+        "type": "",
+        "width": "",
+        "config": {
+          /** any */
+        }
+      }
+    ],
+    "operationOptions": [
+      {
+        "text": "",
+        "color": "",
+        "icon": "",
+        "handler": "",
+        "type": "" /** row | table */
+      }
+    ],
+    "fn": {
+      "beforeUpload": "",
+      "afterUpload": "",
+      "beforeDownload": "",
+      "afterDownload": "",
+      "xxx": "xxx"
+    }
+  },
+  "operationDialogConfig": [
+    {
+      "formOptions": [
+        {
+          "label": "",
+          "prop": "",
+          "span": "",
+          "required": false,
+          "readonly": false,
+          "rules": [],
+          "type": "",
+          "config": {
+            /** any */
+          }
+        }
+      ],
+      "tabOptions": [
+        {
+          "tabName": "",
+          "tableOptions": [
+            {
+              "label": "",
+              "prop": "",
+              "width": "",
+              "required": false,
+              "readonly": false,
+              "type": "",
+              "config": {
+                /** any */
+              }
+            }
+          ]
+        }
+      ],
+      "operationOptions": [
+        {
+          "text": "",
+          "color": "",
+          "icon": "",
+          "handler": "",
+          "type": "" /** row | table */
+        }
+      ],
+      "fn": {}
+    }
+  ]
+}
