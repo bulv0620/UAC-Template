@@ -136,7 +136,11 @@ const handleLogin = () => {
               </template>
             </el-input>
           </el-form-item> -->
-          <el-button :loading="loading" type="primary" size="large" @click.prevent="handleLogin"
+          <el-button
+            :loading="loading"
+            type="primary"
+            size="large"
+            @click.prevent="handleLogin"
             >登 录</el-button
           >
         </el-form>

@@ -31,7 +31,9 @@ const fullscreenSvgName = computed(() => {
 })
 const handleFullscreenClick = () => {
   const dom = document.querySelector(props.element) || undefined
-  screenfull.isEnabled ? screenfull.toggle(dom) : ElMessage.warning('您的浏览器无法工作')
+  screenfull.isEnabled
+    ? screenfull.toggle(dom)
+    : ElMessage.warning('您的浏览器无法工作')
 }
 const handleFullscreenChange = () => {
   isFullscreen.value = screenfull.isFullscreen
@@ -64,7 +66,12 @@ const handleContentLargeClick = () => {
 <template>
   <div>
     <!-- 全屏 -->
-    <el-tooltip v-if="!content" effect="dark" :content="fullscreenTips" placement="bottom">
+    <el-tooltip
+      v-if="!content"
+      effect="dark"
+      :content="fullscreenTips"
+      placement="bottom"
+    >
       <SvgIcon :name="fullscreenSvgName" @click="handleFullscreenClick" />
     </el-tooltip>
     <!-- 内容区 -->
@@ -77,7 +84,9 @@ const handleContentLargeClick = () => {
             contentLargeTips
           }}</el-dropdown-item>
           <!-- 内容区全屏 -->
-          <el-dropdown-item @click="handleFullscreenClick" :disabled="isFullscreen"
+          <el-dropdown-item
+            @click="handleFullscreenClick"
+            :disabled="isFullscreen"
             >内容区全屏</el-dropdown-item
           >
         </el-dropdown-menu>

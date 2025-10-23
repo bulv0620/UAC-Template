@@ -45,7 +45,9 @@ listenerRouteChange((route) => {
   <el-breadcrumb class="app-breadcrumb">
     <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
       <span
-        v-if="item.redirect === 'noRedirect' || index === breadcrumbs.length - 1"
+        v-if="
+          item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
+        "
         class="no-redirect"
       >
         {{ item.meta.title }}

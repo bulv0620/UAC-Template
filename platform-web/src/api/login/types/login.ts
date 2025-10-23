@@ -23,5 +23,8 @@ export interface UserInfo {
 }
 
 export type LoginCodeResponseData = ApiResponseData<string>
-export type LoginResponseData = ApiResponseData<{ accessToken: string; refreshToken: string }>
+export type LoginResponseData = ApiResponseData<{
+  accessToken: string
+  refreshToken: string
+}>
 export type UserInfoResponseData = ApiResponseData<UserInfo>

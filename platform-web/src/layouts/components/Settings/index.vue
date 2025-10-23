@@ -64,7 +64,9 @@ watchEffect(() => {
         :disabled="layoutMode !== 'left' && settingName === '固定 Header'"
       />
     </div>
-    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout">重 置</el-button>
+    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout"
+      >重 置</el-button
+    >
   </div>
 </template>
 

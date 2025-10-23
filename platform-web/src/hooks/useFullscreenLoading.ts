@@ -22,7 +22,10 @@ interface UseFullscreenLoading {
  * @param options LoadingOptions
  * @returns 返回一个新的函数，该函数返回一个 Promise
  */
-export const useFullscreenLoading: UseFullscreenLoading = (fn, options = {}) => {
+export const useFullscreenLoading: UseFullscreenLoading = (
+  fn,
+  options = {},
+) => {
   let loadingInstance: LoadingInstance
   return async (...args) => {
     try {

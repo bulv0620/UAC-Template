@@ -21,8 +21,13 @@ const settingsStore = useSettingsStore()
 const userStore = useUserStore()
 
 const { sidebar, device } = storeToRefs(appStore)
-const { layoutMode, showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
-  storeToRefs(settingsStore)
+const {
+  layoutMode,
+  showNotify,
+  showThemeSwitch,
+  showScreenfull,
+  showSearchMenu,
+} = storeToRefs(settingsStore)
 
 const isTop = computed(() => layoutMode.value === 'top')
 const isMobile = computed(() => device.value === DeviceEnum.Mobile)

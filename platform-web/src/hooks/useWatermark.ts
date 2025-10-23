@@ -69,7 +69,9 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
 
   /** 创建水印元素 */
   const createWatermarkEl = () => {
-    const isBody = parentEl.value!.tagName.toLowerCase() === bodyEl.value.tagName.toLowerCase()
+    const isBody =
+      parentEl.value!.tagName.toLowerCase() ===
+      bodyEl.value.tagName.toLowerCase()
     const watermarkElPosition = isBody ? 'fixed' : 'absolute'
     const parentElPosition = isBody ? '' : 'relative'
     watermarkEl = document.createElement('div')
@@ -94,7 +96,8 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
     }> = {},
   ) => {
     if (!watermarkEl) return
-    backupText && (watermarkEl.style.background = `url(${createBase64()}) left top repeat`)
+    backupText &&
+      (watermarkEl.style.background = `url(${createBase64()}) left top repeat`)
     options.width && (watermarkEl.style.width = `${options.width}px`)
     options.height && (watermarkEl.style.height = `${options.height}px`)
   }
@@ -144,7 +147,10 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
     // 判断是否开启防御
     if (mergeConfig.defense) {
       // 防止重复添加监听
-      if (!observer.watermarkElMutationObserver && !observer.parentElMutationObserver) {
+      if (
+        !observer.watermarkElMutationObserver &&
+        !observer.parentElMutationObserver
+      ) {
         // 监听 DOM 变化
         addMutationListener(targetNode)
       }
@@ -196,7 +202,9 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
       )
     }, 100)
     // 创建观察器实例并传入回调
-    observer.watermarkElMutationObserver = new MutationObserver(mutationCallback)
+    observer.watermarkElMutationObserver = new MutationObserver(
+      mutationCallback,
+    )
     observer.parentElMutationObserver = new MutationObserver(mutationCallback)
     // 以上述配置开始观察目标节点
     observer.watermarkElMutationObserver.observe(watermarkEl!, {
