@@ -1,33 +1,27 @@
-import {
-  IsArray,
-  IsBoolean,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-} from 'class-validator';
-import { Dictionary } from '../entities/dictionary.entity';
+import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import { Dictionary } from '../entities/dictionary.entity'
 
 export class UpdateDictionaryDto {
   @IsNumber()
   @IsNotEmpty()
-  id: number;
+  id: number
 
   @IsString()
   @IsNotEmpty()
-  dictionaryCode: string;
+  dictionaryCode: string
 
   @IsString()
   @IsNotEmpty()
-  dictionaryLabel: string;
+  dictionaryLabel: string
 
   @IsString()
   @IsNotEmpty()
-  dictionaryValue: string;
+  dictionaryValue: string
 
   @IsBoolean()
   @IsNotEmpty()
-  disabled: boolean;
+  disabled: boolean
 
   @IsArray()
-  children: Dictionary[]; // 关联的子资源
+  children: Dictionary[] // 关联的子资源
 }

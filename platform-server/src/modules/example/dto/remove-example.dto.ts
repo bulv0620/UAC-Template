@@ -1,6 +1,6 @@
 import { IsArray } from 'class-validator'
 
-export class RemoveRoleDto {
+export class RemoveExampleDto {
   @IsArray()
   ids: number[]
 }

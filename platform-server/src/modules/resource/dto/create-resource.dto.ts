@@ -1,44 +1,38 @@
-import {
-  IsNotEmpty,
-  IsNumber,
-  IsObject,
-  IsOptional,
-  IsString,
-} from 'class-validator';
-import { Type } from 'class-transformer';
-import { ResourceType } from 'src/enums/resource-type.enum';
-import { Resource } from '../entities/resource.entity';
+import { IsNotEmpty, IsNumber, IsObject, IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer'
+import { ResourceType } from 'src/enums/resource-type.enum'
+import { Resource } from '../entities/resource.entity'
 
 export class CreateResourceDto {
   @IsOptional()
   @IsString()
-  resourceName: string;
+  resourceName: string
 
   @IsString()
   @IsNotEmpty()
-  title: string;
+  title: string
 
   @IsOptional()
   @IsString()
-  path: string;
+  path: string
 
   @IsOptional()
   @IsString()
-  component: string;
+  component: string
 
   @IsOptional()
   @IsString()
-  icon: string;
+  icon: string
 
   @IsString()
   @IsNotEmpty()
-  type: ResourceType;
+  type: ResourceType
 
   @IsOptional()
   @IsObject()
-  parent: Resource;
+  parent: Resource
 
   @Type(() => Number)
   @IsNumber()
-  order: number;
+  order: number
 }

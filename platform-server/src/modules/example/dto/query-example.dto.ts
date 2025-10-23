@@ -1,21 +1,25 @@
 import { Type } from 'class-transformer'
 import { IsNumber, IsObject, IsOptional, IsString, ValidateNested } from 'class-validator'
 
-class DictionaryDetail {
+export class ExampleDetail {
   @IsString()
   @IsOptional()
-  dictionaryCode: string
+  exampleCode: string
 
   @IsString()
   @IsOptional()
-  dictionaryLabel: string
+  exampleName: string
+
+  @IsString()
+  @IsOptional()
+  exampleDesc: string
 }
 
-export class QueryDictionaryDto {
+export class QueryExampleDto {
   @IsObject()
   @ValidateNested()
-  @Type(() => DictionaryDetail)
-  queryDetail: DictionaryDetail
+  @Type(() => ExampleDetail)
+  queryDetail: ExampleDetail
 
   @IsNumber()
   pageSize: number

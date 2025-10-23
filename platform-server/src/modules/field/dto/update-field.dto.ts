@@ -1,12 +1,12 @@
-import { IsArray, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
-import { Field } from '../entities/field.entity';
+import { IsArray, IsNotEmpty, IsNumber, IsOptional } from 'class-validator'
+import { Field } from '../entities/field.entity'
 
 export class UpdateFieldDto {
   @IsNumber()
   @IsNotEmpty()
-  fieldCode: number;
+  fieldCode: number
 
   @IsArray()
   @IsOptional()
-  fieldList: Field[];
+  fieldList: Field[]
 }

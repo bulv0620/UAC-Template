@@ -1,19 +1,19 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator'
 
 export class QueryResourceDto {
   @IsString()
   @IsOptional()
-  resourceName: string;
+  resourceName: string
 
   @IsString()
   @IsOptional()
-  title: string;
+  title: string
 
   @IsString()
   @IsOptional()
-  path: string;
+  path: string
 
   @IsString()
   @IsOptional()
-  type: string;
+  type: string
 }

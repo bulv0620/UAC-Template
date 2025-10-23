@@ -1,21 +1,18 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity()
-export class Field {
+export class Example {
   @PrimaryGeneratedColumn()
   id: number
 
   @Column()
-  fieldCode: number // 标识
+  exampleCode: string
 
   @Column({ length: 255 })
-  fieldGroup: string // 分组
+  exampleName: string
 
   @Column({ length: 255 })
-  fieldType: 'form' | 'table' | 'button'
-
-  @Column('json')
-  fields: any
+  exampleDesc: string
 
   @CreateDateColumn()
   createTime: Date

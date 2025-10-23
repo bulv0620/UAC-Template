@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer';
+import { Type } from 'class-transformer'
 import {
   IsBoolean,
   IsNumber,
@@ -6,32 +6,32 @@ import {
   IsOptional,
   IsString,
   ValidateNested,
-} from 'class-validator';
+} from 'class-validator'
 
 class RoleDetail {
   @IsString()
   @IsOptional()
-  roleName: string;
+  roleName: string
 
   @IsString()
   @IsOptional()
-  description: string;
+  description: string
 
   @Type(() => Boolean)
   @IsBoolean()
   @IsOptional()
-  isDefault: boolean;
+  isDefault: boolean
 }
 
 export class QueryRoleDto {
   @IsObject()
   @ValidateNested()
   @Type(() => RoleDetail)
-  queryDetail: RoleDetail;
+  queryDetail: RoleDetail
 
   @IsNumber()
-  pageSize: number;
+  pageSize: number
 
   @IsNumber()
-  pageNum: number;
+  pageNum: number
 }

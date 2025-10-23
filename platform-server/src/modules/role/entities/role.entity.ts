@@ -1,5 +1,5 @@
-import { Resource } from 'src/modules/resource/entities/resource.entity';
-import { User } from 'src/modules/user/entities/user.entity';
+import { Resource } from 'src/modules/resource/entities/resource.entity'
+import { User } from 'src/modules/user/entities/user.entity'
 import {
   Column,
   CreateDateColumn,
@@ -8,36 +8,36 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from 'typeorm'
 
 @Entity()
 export class Role {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ length: 50 })
-  roleName: string;
+  roleName: string
 
   @Column({ length: 255 })
-  description: string;
+  description: string
 
   @Column({ default: false })
-  isDefault: boolean;
+  isDefault: boolean
 
   @CreateDateColumn()
-  createTime: Date;
+  createTime: Date
 
   @UpdateDateColumn()
-  updateTime: Date;
+  updateTime: Date
 
   @ManyToMany(() => User, (user: User) => user.roles, {
     cascade: true,
   })
   @JoinTable({ name: 'user_role' })
-  users: User[];
+  users: User[]
 
   @ManyToMany(() => Resource, (resource: Resource) => resource.roles, {
     onDelete: 'CASCADE',
   })
-  resources: Resource[];
+  resources: Resource[]
 }

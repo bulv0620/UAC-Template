@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer';
+import { Type } from 'class-transformer'
 import {
   IsBoolean,
   IsNumber,
@@ -6,36 +6,36 @@ import {
   IsOptional,
   IsString,
   ValidateNested,
-} from 'class-validator';
+} from 'class-validator'
 
 class UserDetail {
   @IsString()
   @IsOptional()
-  username: string;
+  username: string
 
   @IsBoolean()
   @Type(() => Boolean)
   @IsOptional()
-  isAdmin: boolean;
+  isAdmin: boolean
 
   @IsString()
   @IsOptional()
-  name: string;
+  name: string
 
   @IsString()
   @IsOptional()
-  email: string;
+  email: string
 }
 
 export class QueryUserDto {
   @IsObject()
   @ValidateNested()
   @Type(() => UserDetail)
-  queryDetail: UserDetail;
+  queryDetail: UserDetail
 
   @IsNumber()
-  pageSize: number;
+  pageSize: number
 
   @IsNumber()
-  pageNum: number;
+  pageNum: number
 }

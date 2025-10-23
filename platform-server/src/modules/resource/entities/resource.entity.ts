@@ -1,5 +1,5 @@
-import { ResourceType } from 'src/enums/resource-type.enum';
-import { Role } from 'src/modules/role/entities/role.entity';
+import { ResourceType } from 'src/enums/resource-type.enum'
+import { Role } from 'src/modules/role/entities/role.entity'
 import {
   Column,
   CreateDateColumn,
@@ -11,52 +11,52 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from 'typeorm'
 
 @Entity()
 export class Resource {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ length: 50, nullable: true })
-  resourceName: string;
+  resourceName: string
 
   @Column({ length: 50 })
-  title: string;
+  title: string
 
   @Column({ length: 255, nullable: true })
-  path: string;
+  path: string
 
   @Column({ length: 255, nullable: true })
-  component: string;
+  component: string
 
   @Column({ length: 255, nullable: true })
-  icon: string;
+  icon: string
 
   @Column({ type: 'enum', enum: ResourceType })
-  type: ResourceType;
+  type: ResourceType
 
   @ManyToOne(() => Resource, { nullable: true, onDelete: 'CASCADE' })
   @JoinColumn({ name: 'parentId' })
-  parent: Resource;
+  parent: Resource
 
   @OneToMany(() => Resource, (resource: Resource) => resource.parent) // 一对多关系，表示子资源
-  children: Resource[]; // 关联的子资源
+  children: Resource[] // 关联的子资源
 
   @Column()
-  order: number;
+  order: number
 
   @CreateDateColumn()
-  createTime: Date;
+  createTime: Date
 
   @UpdateDateColumn()
-  updateTime: Date;
+  updateTime: Date
 
   @ManyToMany(() => Role, (role: Role) => role.resources, {
     cascade: true,
   })
   @JoinTable({ name: 'role_resource' })
-  roles: Role[];
+  roles: Role[]
 
-  available?: boolean;
+  available?: boolean
 }

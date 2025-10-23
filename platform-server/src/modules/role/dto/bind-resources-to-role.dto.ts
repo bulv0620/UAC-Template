@@ -1,9 +1,9 @@
-import { IsArray, IsNumber } from 'class-validator';
+import { IsArray, IsNumber } from 'class-validator'
 
 export class BindResourcesToRoleDto {
   @IsNumber()
-  roleId: number;
+  roleId: number
 
   @IsArray()
-  resourceIds: number[];
+  resourceIds: number[]
 }

@@ -1,14 +1,14 @@
-import { Type } from 'class-transformer';
-import { IsBoolean, IsString } from 'class-validator';
+import { Type } from 'class-transformer'
+import { IsBoolean, IsString } from 'class-validator'
 
 export class CreateRoleDto {
   @IsString()
-  roleName: string;
+  roleName: string
 
   @IsString()
-  description: string;
+  description: string
 
   @Type(() => Boolean)
   @IsBoolean()
-  isDefault: boolean;
+  isDefault: boolean
 }

@@ -6,45 +6,45 @@ import {
   UpdateDateColumn,
   CreateDateColumn,
   ManyToMany,
-} from 'typeorm';
-import * as bcryptjs from 'bcryptjs';
-import { Exclude } from 'class-transformer';
-import { Role } from 'src/modules/role/entities/role.entity';
+} from 'typeorm'
+import * as bcryptjs from 'bcryptjs'
+import { Exclude } from 'class-transformer'
+import { Role } from 'src/modules/role/entities/role.entity'
 
 @Entity('user')
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ length: 50 })
-  username: string;
+  username: string
 
   @Column({ length: 256 })
   @Exclude()
-  password: string;
+  password: string
 
   @Column({ length: 50 })
-  name: string;
+  name: string
 
   @Column({ length: 255 })
-  email: string;
+  email: string
 
   @Column({ default: false })
-  isAdmin: boolean;
+  isAdmin: boolean
 
   @CreateDateColumn()
-  createTime: Date;
+  createTime: Date
 
   @UpdateDateColumn()
-  updateTime: Date;
+  updateTime: Date
 
   @ManyToMany(() => Role, (role: Role) => role.users, {
     onDelete: 'CASCADE',
   })
-  roles: Role[];
+  roles: Role[]
 
   @BeforeInsert()
   async encryptPwd() {
-    this.password = bcryptjs.hashSync(this.password);
+    this.password = bcryptjs.hashSync(this.password)
   }
 }

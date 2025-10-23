@@ -1,7 +1,7 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator'
 
 export class FindDictionaryDto {
   @IsString()
   @IsNotEmpty()
-  dictionaryCode: string;
+  dictionaryCode: string
 }

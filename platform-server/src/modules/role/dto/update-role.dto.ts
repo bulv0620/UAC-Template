@@ -1,17 +1,17 @@
-import { Type } from 'class-transformer';
-import { IsBoolean, IsNumber, IsString } from 'class-validator';
+import { Type } from 'class-transformer'
+import { IsBoolean, IsNumber, IsString } from 'class-validator'
 
 export class UpdateRoleDto {
   @IsNumber()
-  id: number;
+  id: number
 
   @IsString()
-  roleName: string;
+  roleName: string
 
   @IsString()
-  description: string;
+  description: string
 
   @Type(() => Boolean)
   @IsBoolean()
-  isDefault: boolean;
+  isDefault: boolean
 }

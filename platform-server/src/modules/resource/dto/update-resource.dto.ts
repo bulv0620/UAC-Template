@@ -1,43 +1,37 @@
-import {
-  IsNotEmpty,
-  IsNumber,
-  IsObject,
-  IsOptional,
-  IsString,
-} from 'class-validator';
-import { Type } from 'class-transformer';
-import { Resource } from '../entities/resource.entity';
+import { IsNotEmpty, IsNumber, IsObject, IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer'
+import { Resource } from '../entities/resource.entity'
 
 export class UpdateResourceDto {
   @IsNumber()
   @IsNotEmpty()
-  id: number;
+  id: number
 
   @IsString()
   @IsOptional()
-  resourceName: string;
+  resourceName: string
 
   @IsString()
   @IsNotEmpty()
-  title: string;
+  title: string
 
   @IsString()
   @IsOptional()
-  path: string;
+  path: string
 
   @IsString()
   @IsOptional()
-  component: string;
+  component: string
 
   @IsString()
   @IsOptional()
-  icon: string;
+  icon: string
 
   @IsObject()
   @IsOptional()
-  parent: Resource;
+  parent: Resource
 
   @Type(() => Number)
   @IsNumber()
-  order: number;
+  order: number
 }
