@@ -39,11 +39,11 @@ const layoutClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/mixins.scss';
+@use '@/styles/mixins.scss' as mixins;
 $transition-time: 0.35s;
 
 .app-wrapper {
-  @extend %clearfix;
+  @include mixins.clearfix;
   width: 100%;
 }
 

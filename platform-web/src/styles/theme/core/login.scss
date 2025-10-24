@@ -1,9 +1,10 @@
 /** Login 页面相关 */
+@use 'sass:color';
 
 .login-container {
   background-color: $theme-bg-color;
   color: $font-color;
   .login-card {
-    background-color: lighten($theme-bg-color, 4%) !important;
+    background-color: color.adjust($theme-bg-color, $lightness: 4%) !important;
   }
 }
