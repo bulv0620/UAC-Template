@@ -1,6 +1,10 @@
-/** 这里可以写业务页面的黑暗样式 */
+@use 'sass:color';
+@use 'sass:map';
 
-.app-main {
-  background-color: $theme-bg-color !important;
-  // 写在这里...
+/** Other 页面核心样式 mixin */
+@mixin other-styles($theme) {
+  .app-main {
+    background-color: map.get($theme, 'bg-color') !important;
+    // 这里可以继续写业务页面样式...
+  }
 }

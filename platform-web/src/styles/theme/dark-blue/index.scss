@@ -1,4 +1,7 @@
-@use './element-plus.css'; // 方案一
-// @use "./element-plus.scss"; // 方案二
-@import './variables.scss';
-@import '../core/index.scss';
+@use './element-plus.css';
+@use './variables.scss' as *;
+@use '../core/index.scss' as core;
+
+html.dark-blue {
+  @include core.core-styles($variables);
+}

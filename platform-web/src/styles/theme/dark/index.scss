@@ -1,2 +1,6 @@
-@import './variables.scss';
-@import '../core/index.scss';
+@use './variables.scss' as *;
+@use '../core/index.scss' as core;
+
+html.dark {
+  @include core.core-styles($variables);
+}

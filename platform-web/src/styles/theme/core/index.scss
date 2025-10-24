@@ -1,7 +1,14 @@
-.#{$theme-name} {
-  @import './layouts.scss';
-  @import './login.scss';
-  @import './error-page.scss';
-  @import './element-plus.scss';
-  @import './other.scss';
+@use './layout.scss' as layout;
+@use './login.scss' as login;
+@use './error-page.scss' as errorPage;
+@use './element-plus.scss' as elPlus;
+@use './other.scss' as other;
+
+/** 大 mixin，统一 include 所有核心样式 */
+@mixin core-styles($theme) {
+  @include layout.layout-styles($theme);
+  @include login.login-styles($theme);
+  @include errorPage.error-page-styles($theme);
+  @include elPlus.element-plus-styles($theme);
+  @include other.other-styles($theme);
 }

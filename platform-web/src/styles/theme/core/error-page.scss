@@ -1,5 +1,8 @@
-/** ErrorPage 页面相关 */
+@use 'sass:map';
 
-.error-page {
-  background-color: $theme-bg-color;
+/** error-page 核心样式 mixin */
+@mixin error-page-styles($theme) {
+  .error-page {
+    background-color: map.get($theme, bg-color);
+  }
 }

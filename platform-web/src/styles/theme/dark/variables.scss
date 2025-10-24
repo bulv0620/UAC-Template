@@ -1,16 +1,11 @@
 /** dark 主题下的变量 */
 
-// 主题名称
-$theme-name: 'dark';
-// 主题背景颜色
-$theme-bg-color: #151515;
-// 主题色
-$theme-color: #409eff;
-// 默认文字颜色
-$font-color: #c0c4cc;
-// active 状态下文字颜色
-$active-font-color: #fff;
-// hover 状态下文字颜色
-$hover-color: #fff;
-// 边框颜色
-$border-color: #303133;
+$variables: (
+  name: 'dark',                  // 主题名称
+  bg-color: #151515,             // 背景颜色
+  theme-color: #409eff,          // 主题色
+  font-color: #c0c4cc,           // 默认文字颜色
+  active-font-color: #fff,       // active 状态文字颜色
+  hover-color: #fff,             // hover 状态文字颜色
+  border-color: #303133          // 边框颜色
+);
