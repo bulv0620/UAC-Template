@@ -9,12 +9,7 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <a
-    v-if="isExternal(props.to)"
-    :href="props.to"
-    target="_blank"
-    rel="noopener"
-  >
+  <a v-if="isExternal(props.to)" :href="props.to" target="_blank" rel="noopener">
     <slot />
   </a>
   <router-link v-else :to="props.to">

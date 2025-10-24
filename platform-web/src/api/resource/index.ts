@@ -4,7 +4,7 @@ import type * as Resource from './types/resource'
 /** 查 */
 export function reqGetResourceList(data?: Resource.QueryResouceBody) {
   return request<ApiResponseData<Resource.ResourceNode[]>>({
-    url: 'resource/list',
+    url: '/resource/list',
     method: 'post',
     data: data || {},
   })
@@ -13,7 +13,7 @@ export function reqGetResourceList(data?: Resource.QueryResouceBody) {
 /** 增 */
 export function reqAddResource(data: Resource.AddResourceBody) {
   return request<ApiResponseData<any>>({
-    url: 'resource/create',
+    url: '/resource/create',
     method: 'post',
     data: data,
   })
@@ -22,7 +22,7 @@ export function reqAddResource(data: Resource.AddResourceBody) {
 /** 更新 */
 export function reqUpdateResource(data: Resource.AddResourceBody) {
   return request<ApiResponseData<any>>({
-    url: 'resource/update',
+    url: '/resource/update',
     method: 'post',
     data: data,
   })
@@ -31,7 +31,7 @@ export function reqUpdateResource(data: Resource.AddResourceBody) {
 /** 删 */
 export function reqRemoveResource(data: number[]) {
   return request<ApiResponseData<any>>({
-    url: 'resource/remove',
+    url: '/resource/remove',
     method: 'post',
     data: {
       ids: data,

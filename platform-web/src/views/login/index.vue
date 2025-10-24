@@ -40,7 +40,7 @@ const loginFormRules: FormRules = {
 }
 /** 登录逻辑 */
 const handleLogin = () => {
-  loginFormRef.value?.validate((valid: boolean, fields) => {
+  loginFormRef.value?.validate((valid: boolean, fields: any) => {
     if (valid) {
       loading.value = true
       useUserStore()

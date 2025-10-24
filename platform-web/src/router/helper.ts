@@ -46,9 +46,7 @@ const promoteRouteLevel = (route: RouteRecordRaw) => {
   addToChildren(routes, route.children || [], route)
   router = null
   // 转为二级路由后，去除所有子路由中的 children
-  route.children = route.children?.map(
-    (item) => omit(item, 'children') as RouteRecordRaw,
-  )
+  route.children = route.children?.map((item) => omit(item, 'children') as RouteRecordRaw)
 }
 
 /** 将给定的子路由添加到指定的路由模块中 */

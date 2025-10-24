@@ -295,6 +295,27 @@ const handleTableColumnButtonClick = async (
 }
 //#endregion
 
+//#region 表格操作列宽度计算
+const operationColumnWidth = ref(120)
+const tableCardRef = ref<any>(null)
+
+const updateOperationWidth = async () => {
+  await nextTick()
+  const btns = tableCardRef.value.$el.querySelectorAll('.operation-column-btn')
+  if (btns.length === 0) return
+  let total = 25 // padding
+  btns.forEach((btn: HTMLElement) => {
+    const rect = btn.getBoundingClientRect()
+    total += rect.width
+  })
+  total += (btns.length - 1) * 12
+  operationColumnWidth.value = total
+}
+
+// 初次加载 + 按钮配置变化时重新测量
+watch(tableColumnButtons, updateOperationWidth, { immediate: true })
+//#endregion
+
 defineExpose({
   toggleSelection,
   setCurrent,
@@ -305,7 +326,12 @@ defineExpose({
 </script>
 
 <template>
-  <el-card class="table-card" style="flex: 1; height: 100%" shadow="never">
+  <el-card
+    ref="tableCardRef"
+    class="table-card"
+    style="flex: 1; height: 100%"
+    shadow="never"
+  >
     <div class="table-top-btn-wrapper" v-if="tableTopButtons.length">
       <el-button
         v-for="btn in tableTopButtons"
@@ -345,11 +371,13 @@ defineExpose({
           v-if="tableColumnButtons.length"
           label="操作"
           fixed="left"
+          :width="operationColumnWidth"
         >
           <template #default="scope">
             <el-button
               v-for="btn in tableColumnButtons"
               :key="btn.prop"
+              class="operation-column-btn"
               size="small"
               :loading="getLoadingStatus('column', btn, scope.$index)"
               @click.stop="
@@ -376,7 +404,7 @@ defineExpose({
           :key="col.prop"
           :prop="col.prop"
           :label="col.label"
-          :width="col.width"
+          :min-width="col.width"
           resizable
         >
           <template #default="scope: { row: T; $index: number }">

@@ -20,20 +20,14 @@ const { layoutMode } = storeToRefs(settingsStore)
 <template>
   <div
     class="layout-logo-container"
-    :class="{
-      collapse: props.collapse,
-      'layout-mode-top': layoutMode === 'top',
-    }"
+    :class="{ collapse: props.collapse, 'layout-mode-top': layoutMode === 'top' }"
   >
     <transition name="layout-logo-fade">
       <router-link v-if="props.collapse" key="collapse" to="/">
         <img :src="logo" class="layout-logo" />
       </router-link>
       <router-link v-else key="expand" to="/">
-        <img
-          :src="layoutMode !== 'left' ? logoText2 : logoText1"
-          class="layout-logo-text"
-        />
+        <img :src="layoutMode !== 'left' ? logoText2 : logoText1" class="layout-logo-text" />
       </router-link>
     </transition>
   </div>

@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/globals" />
 
 import { type ConfigEnv, type UserConfigExport, loadEnv } from 'vite'
 import path, { resolve } from 'path'
@@ -6,8 +6,6 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import svgLoader from 'vite-svg-loader'
-import UnoCSS from 'unocss/vite'
-import monacoEditorPlugin from 'vite-plugin-monaco-editor'
 
 /** 配置项文档：https://cn.vitejs.dev/config */
 export default (configEnv: ConfigEnv): UserConfigExport => {
@@ -26,8 +24,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       },
     },
     server: {
-      /** 是否开启 HTTPS */
-      https: false,
       /** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
       host: true, // host: "0.0.0.0"
       /** 端口号 */
@@ -48,6 +44,13 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         },
       },
     },
+    optimizeDeps: {
+      include: ['monaco-editor/esm/vs/editor/editor.worker',
+                'monaco-editor/esm/vs/language/json/json.worker',
+                'monaco-editor/esm/vs/language/css/css.worker',
+                'monaco-editor/esm/vs/language/html/html.worker',
+                'monaco-editor/esm/vs/language/typescript/ts.worker']
+    },
     build: {
       /** 单个 chunk 文件的大小超过 2048KB 时发出警告 */
       chunkSizeWarningLimit: 2048,
@@ -65,7 +68,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           manualChunks: {
             vue: ['vue', 'vue-router', 'pinia'],
             element: ['element-plus', '@element-plus/icons-vue'],
-            vxe: ['vxe-table', 'vxe-table-plugin-element', 'xe-utils'],
+            'monaco-editor': ['monaco-editor']
           },
         },
       },
@@ -90,16 +93,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
         symbolId: 'icon-[dir]-[name]',
       }),
-      /** UnoCSS */
-      UnoCSS(),
-      monacoEditorPlugin({
-        languageWorkers: ['editorWorkerService', 'typescript', 'json', 'html'],
-      }),
     ],
-    /** Vitest 单元测试配置：https://cn.vitest.dev/config */
-    test: {
-      include: ['tests/**/*.test.ts'],
-      environment: 'jsdom',
-    },
   }
 }
