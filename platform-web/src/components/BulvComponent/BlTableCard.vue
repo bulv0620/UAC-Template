@@ -303,13 +303,13 @@ const updateOperationWidth = async () => {
   await nextTick()
   const btns = tableCardRef.value.$el.querySelectorAll('.operation-column-btn')
   if (btns.length === 0) return
-  let total = 25 // padding
+  let total = 24 // padding
   btns.forEach((btn: HTMLElement) => {
     const rect = btn.getBoundingClientRect()
     total += rect.width
   })
   total += (btns.length - 1) * 12
-  operationColumnWidth.value = total
+  operationColumnWidth.value = total + 16 + 1
 }
 
 // 初次加载 + 按钮配置变化时重新测量
